@@ -1,0 +1,45 @@
+package enum1;
+
+public enum EnumTest {
+
+    //就类似一个数据库  //先定义好自己想要对应的数据 然后再在这个类中建立bean的组建函数
+    ONE(1,"周"),TWO(2,"吴");
+
+    private Integer id;
+    private String name;
+
+    private EnumTest(Integer id,String name)
+    {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static  String getState(Integer id)  //根据id得到其对应的状态
+    {
+        EnumTest[] e = EnumTest.values(); //获得所有的实例
+        for(EnumTest e1:e)  //从实例中得到自己想要的
+        {
+            if(e1.getId() == id)
+            {
+                return e1.getName();
+            }
+        }
+        return null;
+    }
+}
